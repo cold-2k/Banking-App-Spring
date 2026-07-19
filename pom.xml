@@ -6,9 +6,9 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.1.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from app.swastik.banking_app_spring.repository -->
 	</parent>
-	<groupId>app.swastik</groupId>
+	<groupId>app</groupId>
 	<artifactId>banking-app-spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
