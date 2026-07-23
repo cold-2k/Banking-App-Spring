@@ -99,7 +99,7 @@ public class AccountServiceImpl implements AccountService {
             // add this transaction to account's transaction list
             account.addTransaction(txn);
             // save the transaction to transaction repo
-            transactionRepository.save(txn);
+            transactionRepository.save(txn);  // CR: what happens if save() method fails?
 
             return txn;
         }
@@ -151,7 +151,7 @@ public class AccountServiceImpl implements AccountService {
         public AccountResponse deposit(DepositRequest request) {
             Account account = findAccountByAccountNumber(request.getAccountNumber());
 
-            Transaction txn = performCredit(
+            Transaction txn = performCredit(     // CR: if txn is not being used, why return it from the method? the method can be void, or return a boolean to indicate whether the entity was saved or not
                     account,
                     request.getAmount(),
                     request.getSource(),

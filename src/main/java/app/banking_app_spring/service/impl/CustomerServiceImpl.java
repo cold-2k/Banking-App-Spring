@@ -28,6 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
         );
         customer = customerRepository.save(customer);
 
+        // CR: validate if customer != null
         CustomerResponse response = new CustomerResponse();
         response.setId(customer.getId());
         response.setFirstName(customer.getFirstName());
