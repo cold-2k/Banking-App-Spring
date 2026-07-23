@@ -2,13 +2,12 @@ package app.banking_app_spring.entity;
 
 import app.banking_app_spring.enums.AccountStatus;
 import app.banking_app_spring.enums.AccountType;
-import app.banking_app_spring.exception.account.InvalidAccountException;
-import app.banking_app_spring.exception.account.InvalidAccountStatusException;
+import app.banking_app_spring.exception.account.InactiveAccountException;
+import app.banking_app_spring.exception.account.ClosedAccountStatusException;
 import app.banking_app_spring.exception.validation.InvalidAmountException;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -80,7 +79,7 @@ public class Account {
         // active account validation
         private void validateAccountIsActive() {
             if (status != AccountStatus.ACTIVE) {
-                throw new InvalidAccountException("Account is NOT ACTIVE and cannot perform the requested operation.");
+                throw new InactiveAccountException("Account is NOT ACTIVE and cannot perform the requested operation.");
             }
         }
 
@@ -95,7 +94,7 @@ public class Account {
         // validate account is NOT CLOSED
         private void validateAccountIsNotClosed() {
             if (status == AccountStatus.CLOSED) {
-                throw new InvalidAccountStatusException("Account is CLOSED and cannot perform the requested operation.");
+                throw new ClosedAccountStatusException("Account is CLOSED and cannot perform the requested operation.");
             }
         }
 

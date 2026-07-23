@@ -1,7 +1,9 @@
 package app.banking_app_spring.dto.response;
 
-import app.banking_app_spring.entity.Account;
+import app.banking_app_spring.enums.TransactionDestination;
+import app.banking_app_spring.enums.TransactionSource;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -9,10 +11,19 @@ import java.math.BigDecimal;
 @Data
 public class TransferResponse {
     @NotBlank
-    private final Account fromAccount;
+    private String fromAccountNumber;
+
     @NotBlank
-    private final Account toAccount;
+    private String toAccountNumber;
+
     @NotBlank
-    private final BigDecimal amount;
+    private BigDecimal amount;
+
+    private TransactionSource source;
+
+    private TransactionDestination destination;
+
+    @Size(max = 100)
+    private String reference;
 }
 

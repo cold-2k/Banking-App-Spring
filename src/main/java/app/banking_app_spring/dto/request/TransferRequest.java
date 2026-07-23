@@ -4,6 +4,7 @@ import app.banking_app_spring.enums.TransactionDestination;
 import app.banking_app_spring.enums.TransactionSource;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class TransferRequest {
     private String toAccountNumber;
 
     @NotBlank
+    @Positive
     private BigDecimal amount;
 
     private TransactionSource source;

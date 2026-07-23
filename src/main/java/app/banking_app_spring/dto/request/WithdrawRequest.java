@@ -3,6 +3,7 @@ package app.banking_app_spring.dto.request;
 import app.banking_app_spring.enums.TransactionDestination;
 import app.banking_app_spring.enums.TransactionSource;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class WithdrawRequest {
     private String accountNumber;
 
     @NotBlank
+    @Positive
     private BigDecimal amount;
 
     @NotBlank

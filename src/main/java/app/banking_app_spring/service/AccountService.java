@@ -5,6 +5,7 @@ import app.banking_app_spring.dto.request.OpenAccountRequest;
 import app.banking_app_spring.dto.request.TransferRequest;
 import app.banking_app_spring.dto.request.WithdrawRequest;
 import app.banking_app_spring.dto.response.AccountResponse;
+import app.banking_app_spring.dto.response.TransferResponse;
 import app.banking_app_spring.entity.Account;
 
 public interface AccountService {
@@ -20,7 +21,7 @@ public interface AccountService {
             WithdrawRequest request
     );
 
-    AccountResponse transfer(
+    TransferResponse transfer(
             TransferRequest request
     );
 }
