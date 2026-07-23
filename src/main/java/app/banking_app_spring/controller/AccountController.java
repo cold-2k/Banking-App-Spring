@@ -23,6 +23,7 @@ public class AccountController {
     @Operation(summary = "Deposit money into an account")
     @PostMapping("/deposit")
     public ResponseEntity<AccountResponse> deposit(@RequestBody DepositRequest request) {
+        // CR: @Valid is required for validation in request dto to work
         return ResponseEntity.ok(
                 accountService.deposit(request)
         );

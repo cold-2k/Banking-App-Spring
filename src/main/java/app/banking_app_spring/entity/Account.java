@@ -41,7 +41,7 @@ public class Account {
         private AccountType type;
 
         @Column(nullable = false)
-        @Enumerated(EnumType.STRING)
+        @Enumerated(EnumType.STRING)   // CR: enums are preferred to be stored as byte in db as it takes less space
         private AccountStatus status;
 
         @Column(
@@ -86,6 +86,7 @@ public class Account {
         // amount validation
         private void validateAmount(BigDecimal amount) {
             // amount must not be null or non-positive
+            // CR: but amount ka validation is already being done in request
             if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
                 throw new InvalidAmountException("Invalid amount. An amount must be greater than 0.");
             }
